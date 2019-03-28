@@ -38,8 +38,6 @@
         <button onclick="alertAction()">获取操作系统信息</button>
         <button onclick="buttonAction()">点击向native传数据</button>
         
-        <label class="col-lg-6 control-label" id="show">something</label>
-        
     </body>
     
     <script>
@@ -52,14 +50,12 @@
         }
         
         function alertAction(){
-            alert("哈哈哈");
+            document.getElementsByTagName('h2')[0].innerText = 'clicked';
             WebViewJavascriptBridge.callHandler(
                 'getOSVersion'
                 //, {'param': str1}
                 , function(responseData) {
-                document.getElementById("show").innerHTML = "send get responseData from java, data = " + responseData;
-                document.getElementById("show").innerText = responseData;
-                alert(responseData);
+                    document.getElementsByTagName('h2')[0].innerText = responseData;
                 }
             );
         }
