@@ -38,10 +38,7 @@
         <button onclick="alertAction()">获取操作系统信息</button>
         <button onclick="buttonAction()">点击向native传数据</button>
         
-        <p>
-            <xmp id="show">
-            </xmp>
-        </p>
+        <label class="col-lg-6 control-label" id="show">something</label>
         
     </body>
     
@@ -61,6 +58,7 @@
                 //, {'param': str1}
                 , function(responseData) {
                 document.getElementById("show").innerHTML = "send get responseData from java, data = " + responseData;
+                document.getElementById("show").innerText = responseData;
                 alert(responseData);
                 }
             );
