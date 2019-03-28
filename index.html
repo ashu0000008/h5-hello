@@ -38,6 +38,10 @@
         <button onclick="alertAction()">获取操作系统信息</button>
         <button onclick="buttonAction()">点击向native传数据</button>
         
+        <p>
+            <xmp id="show">
+            </xmp>
+        </p>
         
     </body>
     
@@ -56,7 +60,7 @@
                 'getOSVersion'
                 //, {'param': str1}
                 , function(responseData) {
-                // document.getElementById("show").innerHTML = "send get responseData from java, data = " + responseData
+                document.getElementById("show").innerHTML = "send get responseData from java, data = " + responseData;
                 alert(responseData);
                 }
             );
@@ -64,7 +68,6 @@
     
         function buttonAction(){
             try{
-                <!--js向ios传递数据-->
                 window.webkit.messageHandlers.show.postMessage("我是js传递过来的数据");
             }catch (e){
                 
