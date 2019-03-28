@@ -52,6 +52,13 @@
         
         function alertAction(){
             alert("哈哈哈");
+            WebViewJavascriptBridge.callHandler(
+                'getOSVersion'
+                //, {'param': str1}
+                , function(responseData) {
+                document.getElementById("show").innerHTML = "send get responseData from java, data = " + responseData
+                }
+            );
         }
     
         function buttonAction(){
