@@ -50,14 +50,19 @@
         }
         
         function alertAction(){
+            var dsBridge=require("dsbridge");
             document.getElementsByTagName('h2')[0].innerText = 'clicked';
-            WebViewJavascriptBridge.callHandler(
-                'getOSVersion'
-                , {'param': str1}
-                , function(responseData) {
-                    document.getElementsByTagName('h2')[0].innerText = responseData;
-                }
-            );
+            dsBridge.call("getOSVersion", "", function(responseData){
+                document.getElementsByTagName('h2')[0].innerText = responseData;
+            });
+
+            // WebViewJavascriptBridge.callHandler(
+            //     'getOSVersion'
+            //     , {'param': str1}
+            //     , function(responseData) {
+            //         document.getElementsByTagName('h2')[0].innerText = responseData;
+            //     }
+            // );
         }
     
         function buttonAction(){
