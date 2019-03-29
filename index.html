@@ -53,8 +53,7 @@
                 document.getElementsByTagName('h2')[0].innerText = responseData;
             });
             bridge.register("getTitle", function(){
-                document.getElementsByTagName('h2')[0].innerText = 'getTitled';
-                return document.getElementsByTagName('h2')[0].innerText;
+                return document.getElementsByTagName('h1')[0].innerText;
             });
         }
     
