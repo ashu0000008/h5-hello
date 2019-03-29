@@ -50,8 +50,9 @@
         var count = 0;
         function alertAction(){
             count++;
+            var param = {"count":count};
             document.getElementsByTagName('h2')[0].innerText = 'clicked';
-            bridge.call("getOSVersion", count.toString, function(responseData){
+            bridge.call("getOSVersion", param, function(responseData){
                 document.getElementsByTagName('h2')[0].innerText = responseData;
             });
             bridge.register("getTitle", function(){
