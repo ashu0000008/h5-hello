@@ -59,7 +59,7 @@
     
         function buttonAction(){
             try{
-                window.webkit.messageHandlers.show.postMessage("我是js传递过来的数据");
+                bridge.call("demo.startNewPage", "");
             }catch (e){
                 
             }
