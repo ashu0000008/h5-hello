@@ -54,6 +54,7 @@
             });
             bridge.registerAsyn("getTitle", function(){
                 responseCallback(document.getElementsByTagName('h2')[0].innerText);
+                return document.getElementsByTagName('h2')[0].innerText;
             });
         }
     
