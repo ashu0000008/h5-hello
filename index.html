@@ -49,7 +49,7 @@
         
         function alertAction(){
             document.getElementsByTagName('h2')[0].innerText = 'clicked';
-            bridge.call("getOSVersion", "getOSVersion", function(responseData){
+            bridge.call("demo.getOSVersion", "", function(responseData){
                 document.getElementsByTagName('h2')[0].innerText = responseData;
             });
 
