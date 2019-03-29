@@ -40,19 +40,16 @@
         
     </body>
     
-    <script>
-        
-        
-    
+    <script src="https://cdn.jsdelivr.net/npm/dsbridge/dist/dsbridge.js"> </script>
+    <script>     
         function navButtonAction(name,age){
             var dic = {name:name,age:age};
             return dic;
         }
         
         function alertAction(){
-            var dsBridge=require("dsbridge");
             document.getElementsByTagName('h2')[0].innerText = 'clicked';
-            dsBridge.call("getOSVersion", "", function(responseData){
+            bridge.call("getOSVersion", "", function(responseData){
                 document.getElementsByTagName('h2')[0].innerText = responseData;
             });
 
