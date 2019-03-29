@@ -47,9 +47,11 @@
             return dic;
         }
         
+        var count = 0;
         function alertAction(){
+            count++;
             document.getElementsByTagName('h2')[0].innerText = 'clicked';
-            bridge.call("getOSVersion", "", function(responseData){
+            bridge.call("getOSVersion", count.toString, function(responseData){
                 document.getElementsByTagName('h2')[0].innerText = responseData;
             });
             bridge.register("getTitle", function(){
