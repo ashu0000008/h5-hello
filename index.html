@@ -55,8 +55,8 @@
             bridge.call("getOSVersion", param, function(responseData){
                 document.getElementsByTagName('h2')[0].innerText = responseData;
             });
-            bridge.register("getTitle", function(){
-                return document.getElementsByTagName('h1')[0].innerText;
+            bridge.register("getTitle", function(arg){
+                return document.getElementsByTagName('h1')[0].innerText + "---"+ arg;
             });
         }
     
