@@ -52,7 +52,7 @@
             bridge.call("demo.getOSVersion", "", function(responseData){
                 document.getElementsByTagName('h2')[0].innerText = responseData;
             });
-            bridge.register("getTitle", function(){
+            bridge.registerAsyn("getTitle", function(){
                 return document.getElementsByTagName('h2').innerText;
             });
         }
