@@ -36,7 +36,7 @@
         <h1>Webview与原生交互</h1>
         <h2></h2>
         <button onclick="alertAction()">获取操作系统信息</button>
-        <button onclick="buttonAction()">点击向native传数据</button>
+        <button onclick="buttonAction()">弹出以当前标题为内容的吐司</button>
         
     </body>
     
@@ -52,14 +52,9 @@
             bridge.call("demo.getOSVersion", "", function(responseData){
                 document.getElementsByTagName('h2')[0].innerText = responseData;
             });
-
-            // WebViewJavascriptBridge.callHandler(
-            //     'getOSVersion'
-            //     , {'param': str1}
-            //     , function(responseData) {
-            //         document.getElementsByTagName('h2')[0].innerText = responseData;
-            //     }
-            // );
+            bridge.register("getTitle", function(){
+                return document.getElementsByTagName('h2').innerText;
+            });
         }
     
         function buttonAction(){
