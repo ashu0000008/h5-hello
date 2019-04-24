@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>测试API</title>
+        
+        <style>
+            
+            body {
+                font-size:30px;
+                text-align:center;
+            }
+        
+            * {
+                margin: 30px;
+                padding: 0;
+            }
+        
+            h1{
+                letter-spacing: normal;
+                color: red;
+            }
+        
+            button{
+                width: 300px;
+                height: 50px;
+                font-size: 30px;
+            }
+        
+    </style>
+        
+    </head>
+    
+    <body>
+        
+        <h1>Webview与原生交互</h1>
+        <h2></h2>
+        <button onclick="buttonGetPhoto()">获取照片</button>
+        <button onclick="buttonGetLatitude()">获取经纬度</button>
+        <button onclick="buttonGetPosition()">获取地理位置</button>
+        
+    </body>
+    
+    <script src="https://cdn.jsdelivr.net/npm/dsbridge/dist/dsbridge.js"> </script>
+    <script>     
+        function navButtonAction(name,age){
+            var dic = {name:name,age:age};
+            return dic;
+        }
+        
+        var count = 0;
+        function alertAction(){
+            count++;
+            var param = {"count":count};
+            document.getElementsByTagName('h2')[0].innerText = 'clicked';
+            bridge.call("getOSVersion", param, function(responseData){
+                document.getElementsByTagName('h2')[0].innerText = responseData;
+            });
+            bridge.register("getTitle", function(arg){
+                return document.getElementsByTagName('h1')[0].innerText + "---"+ arg;
+            });
+        }
+    
+        function buttonAction(){
+            try{
+                bridge.call("startNewPage", "");
+            }catch (e){
+                
+            }
+        }
+
+        function buttonGetPhoto(){
+            var count = 1;
+            var type = 1;
+            var param = {"count":count, "type":type};
+            try{
+                bridge.call("lbGetPhotos", param, function(responseData){
+                    document.getElementsByTagName('h2')[0].innerText = responseData;
+                });
+            }catch(e){
+            }
+        }
+
+        function buttonGetLatitude(){
+            var count = 1;
+            var type = 1;
+            var param = {"count":count, "type":type};
+            try{
+                bridge.call("lbGetPhotos", param, function(responseData){
+                    document.getElementsByTagName('h2')[0].innerText = responseData;
+                });
+            }catch(e){
+            }
+        }
+
+        function buttonGetPosition(){
+            var count = 1;
+            var type = 1;
+            var param = {"count":count, "type":type};
+            try{
+                bridge.call("lbGetPhotos", param, function(responseData){
+                    document.getElementsByTagName('h2')[0].innerText = responseData;
+                });
+            }catch(e){
+            }
+        }
+    
+        </script>
+    
+</html>
