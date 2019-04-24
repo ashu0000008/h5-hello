@@ -1,0 +1,4 @@
+#!/bin/sh
+cd /webhome/h5-hello
+git pull
+nginx -s reload
