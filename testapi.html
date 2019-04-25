@@ -82,11 +82,11 @@
         }
 
         function buttonGetLatitude(){
-            var count = 1;
-            var type = 1;
-            var param = {"count":count, "type":type};
+            var onlyLocation = false;
+            var displayMap = false;
+            var param = {"onlyLocation":onlyLocation, "displayMap":displayMap};
             try{
-                bridge.call("lbGetPhotos", param, function(responseData){
+                bridge.call("lbGetLocation", param, function(responseData){
                     document.getElementsByTagName('h2')[0].innerText = responseData;
                 });
             }catch(e){
@@ -94,11 +94,11 @@
         }
 
         function buttonGetPosition(){
-            var count = 1;
-            var type = 1;
-            var param = {"count":count, "type":type};
+            var onlyLocation = true;
+            var displayMap = true;
+            var param = {"onlyLocation":onlyLocation, "displayMap":displayMap};
             try{
-                bridge.call("lbGetPhotos", param, function(responseData){
+                bridge.call("lbGetLocation", param, function(responseData){
                     document.getElementsByTagName('h2')[0].innerText = responseData;
                 });
             }catch(e){
